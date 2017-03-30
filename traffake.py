@@ -1,14 +1,10 @@
 import time
-from random import randint, uniform
+from random import randint, uniform, choice
 from selenium import webdriver
 from itertools import repeat
 
 # Add odd shit here
 site_list = []
-
-def site_select():
-    i = randint(0, len(site_list) - 1)
-    return (site_list[i])
 
 firefox_profile = webdriver.FirefoxProfile()
 firefox_profile.set_preference("browser.privatebrowsing.autostart", True)
@@ -16,8 +12,7 @@ driver = webdriver.Firefox(firefox_profile=firefox_profile)
 
 # Visits a site, clicks a random number links, sleeps for random spans between
 def visit_site():
-    new_site = site_select()
-    driver.get(new_site)
+    driver.get(choice(site_list))
     print("Visiting: " + new_site)
     time.sleep(uniform(1, 15))
 
