@@ -3,7 +3,7 @@ from random import randint, uniform, choice
 from selenium import webdriver
 from itertools import repeat
 
-# Add odd shit here
+# TODO: scrape data from Alexa list and dump here
 site_list = []
 
 firefox_profile = webdriver.FirefoxProfile()
@@ -14,7 +14,7 @@ driver = webdriver.Firefox(firefox_profile=firefox_profile)
 def visit_site():
     driver.get(choice(site_list))
     print("Visiting: " + new_site)
-    time.sleep(uniform(1, 15))
+    time.sleep(uniform(1, 15)) # TODO: change all random intervals to true random methods
 
     for i in repeat(None, randint(1, 3)) :
         try:
